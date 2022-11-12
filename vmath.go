@@ -1,6 +1,9 @@
 package vmath
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type Vec []float64
 
@@ -112,6 +115,22 @@ func (a Vec) Abs() Vec {
 	}
 
 	return vec
+}
+
+// Vector in string form
+func (a Vec) String() string {
+	ret := ""
+	ret += fmt.Sprint(a.D()) + "-D Vector\n[ "
+	for i := range a {
+		if i != len(a)-1 {
+			ret += fmt.Sprint(a[i]) + ", "
+		} else {
+			ret += fmt.Sprint(a[i]) + " "
+		}
+	}
+	ret += "]\n"
+
+	return ret
 }
 
 /* ============================== */
