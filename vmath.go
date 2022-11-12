@@ -89,6 +89,11 @@ func (a Vec) Cross3D(b Vec) Vec {
 /* ============================== */
 
 /* == Util ====================== */
+// Total dimensions of a vector
+func (a Vec) D() int {
+	return len(a)
+}
+
 // Length of a vector
 func (a Vec) Len() float64 {
 	return math.Sqrt(a.Dot(a))
