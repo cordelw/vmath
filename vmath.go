@@ -16,7 +16,7 @@ func (a Vec) Add(b Vec) Vec {
 }
 
 // Add a number to a vector
-func (a Vec) AddN(b float64) Vec {
+func (a Vec) AddScalar(b float64) Vec {
 	vec := Vec{}
 	for i := range a {
 		vec = append(vec, a[i]+b)
@@ -39,7 +39,7 @@ func (a Vec) Sub(b Vec) Vec {
 }
 
 // Subtract a number from a vector
-func (a Vec) SubN(b float64) Vec {
+func (a Vec) SubScalar(b float64) Vec {
 	vec := Vec{}
 	for i := range a {
 		vec = append(vec, a[i]-b)
@@ -52,7 +52,7 @@ func (a Vec) SubN(b float64) Vec {
 
 /* == Multiplication ============ */
 // Scalar multiplication for a vector
-func (a Vec) ScalarMul(b float64) Vec {
+func (a Vec) MulScalar(b float64) Vec {
 	vec := Vec{}
 	for i := range a {
 		vec = append(vec, a[i]*b)
@@ -101,11 +101,11 @@ func (a Vec) Len() float64 {
 
 // Normalized Vector
 func (a Vec) Norm() Vec {
-	return a.ScalarMul(1.0 / a.Len())
+	return a.MulScalar(1.0 / a.Len())
 }
 
 // ABS????
-func (a Vec) Abs() Vec {
+func (a Vec) Mag() Vec {
 	vec := Vec{}
 	for i := range a {
 		vec = append(vec, math.Abs(a[i]))
